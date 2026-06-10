@@ -167,10 +167,10 @@ function App() {
       </header>
 
       {/* Main Content Grid */}
-      <main className="flex-grow w-full max-w-[1400px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center py-4 lg:py-2 relative z-10">
+      <main className="flex-grow w-full max-w-[1400px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch py-4 lg:py-2 relative z-10">
         
         {/* Left Hero Column */}
-        <section className="lg:col-span-5 flex flex-col justify-center items-start text-left gap-5 lg:pr-4">
+        <section className="lg:col-span-5 flex flex-col justify-end items-start text-left pb-4 lg:pb-8 gap-5 lg:pr-4">
           <div className="flex flex-col gap-2.5">
             <span className="text-sm md:text-base font-semibold tracking-wider text-purple-400 uppercase">
               Hi, I'm
@@ -222,7 +222,7 @@ function App() {
           </div>
 
           {/* Social Links */}
-          <div className="flex flex-col gap-3 mt-4">
+          <div className="flex flex-col gap-3 mt-8 lg:mt-12">
             <span className="text-xs font-bold tracking-[0.2em] text-purple-400/80 uppercase">
               Connect With Me
             </span>
@@ -285,7 +285,7 @@ function App() {
         </section>
 
         {/* Right Visuals Column */}
-        <section className="lg:col-span-7 flex flex-col items-center justify-center relative py-4 lg:py-2 select-none">
+        <section className="lg:col-span-7 flex flex-col items-center justify-end relative pb-4 lg:pb-8 select-none">
           
           {/* Avatar Container with glowing rings */}
           <div className="relative w-[260px] h-[260px] sm:w-[310px] sm:h-[310px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] flex items-center justify-center">
@@ -363,7 +363,7 @@ function App() {
           </div>
 
           {/* Stats bar (positioned bottom-right relative to layout, fits nicely) */}
-          <div className="w-full max-w-[560px] md:max-w-[620px] mt-8 lg:mt-6 glass-card p-4 rounded-2xl grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 select-none relative z-20">
+          <div className="w-full max-w-[560px] md:max-w-[620px] mt-12 lg:mt-14 glass-card p-4 rounded-2xl grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 select-none relative z-20">
             {/* Stat 1 */}
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-1 relative">
               <div className="flex items-center gap-2">
@@ -419,30 +419,30 @@ function App() {
             </div>
           </div>
 
-          {/* Scroll Down Indicator (centered under stats bar) */}
-          <div className="flex flex-col items-center gap-1 cursor-pointer group mt-6 lg:mt-4 select-none">
-            <div className="border border-slate-500 rounded-full w-5 h-8 flex justify-center pt-1 group-hover:border-purple-500 transition-colors">
-              <span className="w-1.5 h-2.5 bg-purple-400 rounded-full mouse-scroll-dot" />
-            </div>
-            <span className="text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase group-hover:text-purple-400 transition-colors">
-              Scroll Down
-            </span>
-            <svg 
-              className="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-500 animate-bounce transition-colors mt-0.5" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </div>
-
         </section>
 
       </main>
+
+      {/* Scroll Down Indicator (Absolute positioned in the center-left gap) */}
+      <div className="absolute left-[40%] xl:left-[42%] bottom-6 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 cursor-pointer group select-none z-30">
+        <div className="border border-slate-500 rounded-full w-5 h-8 flex justify-center pt-1 group-hover:border-purple-500 transition-colors">
+          <span className="w-1.5 h-2.5 bg-purple-400 rounded-full mouse-scroll-dot" />
+        </div>
+        <span className="text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase group-hover:text-purple-400 transition-colors">
+          Scroll Down
+        </span>
+        <svg 
+          className="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-500 animate-bounce transition-colors mt-0.5" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2.5" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
 
       {/* Minimal Bottom Margin Spacer */}
       <footer className="w-full h-6 relative z-10 select-none pb-2" />
