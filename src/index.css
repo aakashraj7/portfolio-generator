@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Global Reset and Backdrop Setup */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #02000d;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+  color: #e2e8f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Webkit Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #02000a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.5);
+}
+
+/* Cosmic Twinkling Star Field Overlay */
+.stars-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 40px 80px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 150px 350px, rgba(255, 255, 255, 0.9), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 350px 180px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 580px 480px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 820px 220px, rgba(168, 85, 247, 0.6), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 980px 620px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 1200px 140px, rgba(6, 182, 212, 0.6), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 1350px 450px, rgba(255, 255, 255, 0.5), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 1400px 900px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: rgba(10, 8, 28, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 0 1px 1px rgba(255, 255, 255, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(13, 9, 36, 0.6);
+  border-color: rgba(168, 85, 247, 0.2);
+  box-shadow: 
+    0 20px 50px rgba(168, 85, 247, 0.08),
+    inset 0 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Concentric Neon Glowing Rings */
+.neon-halo-outer {
+  border: 2px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 
+    0 0 40px rgba(168, 85, 247, 0.25), 
+    inset 0 0 30px rgba(168, 85, 247, 0.15);
+  animation: pulse-glow-outer 8s ease-in-out infinite alternate;
+}
+
+.neon-halo-inner {
+  border: 2px solid rgba(6, 182, 212, 0.45);
+  box-shadow: 
+    0 0 35px rgba(6, 182, 212, 0.3), 
+    inset 0 0 25px rgba(6, 182, 212, 0.15);
+  animation: pulse-glow-inner 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow-outer {
+  0% {
+    transform: rotate(0deg) scale(1);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(168, 85, 247, 0.1);
+  }
+  100% {
+    transform: rotate(180deg) scale(1.03);
+    box-shadow: 0 0 55px rgba(168, 85, 247, 0.45), inset 0 0 35px rgba(168, 85, 247, 0.25);
+  }
+}
+
+@keyframes pulse-glow-inner {
+  0% {
+    transform: rotate(0deg) scale(1);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.25), inset 0 0 15px rgba(6, 182, 212, 0.1);
+  }
+  100% {
+    transform: rotate(-180deg) scale(0.97);
+    box-shadow: 0 0 45px rgba(6, 182, 212, 0.5), inset 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+}
+
+/* Float Animations for Badges */
+.float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+.float-medium {
+  animation: float-y 5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+.float-fast {
+  animation: float-y 4s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+@keyframes float-y {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Wave Mesh Animation for Bottom Left Wave */
+@keyframes wave-flow {
+  0% {
+    transform: translate(0, 0) scaleY(1);
+  }
+  50% {
+    transform: translate(-30px, 10px) scaleY(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scaleY(1);
+  }
+}
+
+.wave-animate {
+  animation: wave-flow 10s ease-in-out infinite;
+}
+
+/* Mouse Wheel Blink Animation */
+@keyframes scroll-dot {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.mouse-scroll-dot {
+  animation: scroll-dot 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Text Gradients */
+.text-gradient-purple-blue {
+  background: linear-gradient(135deg, #f472b6 0%, #a855f7 35%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple-pink {
+  background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gradient Buttons */
+.btn-gradient {
+  background: linear-gradient(95deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+  background-size: 200% auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn-gradient:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.btn-gradient:active {
+  transform: translateY(0px);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline:hover {
+  background: rgba(168, 85, 247, 0.05);
+  border-color: rgba(168, 85, 247, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+.btn-outline:active {
+  transform: translateY(0px);
+}
+
+.social-btn {
+  background: rgba(10, 8, 28, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-btn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+/* Waving Hand keyframe */
+@keyframes wave-hand {
+  0% { transform: rotate( 0.0deg) }
+ 10% { transform: rotate(14.0deg) }
+ 20% { transform: rotate(-8.0deg) }
+ 30% { transform: rotate(14.0deg) }
+ 40% { transform: rotate(-4.0deg) }
+ 50% { transform: rotate(10.0deg) }
+ 60% { transform: rotate( 0.0deg) }
+100% { transform: rotate( 0.0deg) }
+}
+
+.waving-emoji {
+  display: inline-block;
+  animation: wave-hand 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+/* Space Particles Animation */
+@keyframes particle-fade-drift {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-80px) translateX(25px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.space-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  animation: particle-fade-drift var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
